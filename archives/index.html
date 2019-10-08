@@ -1,585 +1,269 @@
-<!--
-	作者：Sariay
-	时间：2018-09-25
-	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
--->
 <!DOCTYPE html>
-<html class="html-loading">
-		
-
+<html>
 <head><meta name="generator" content="Hexo 3.9.0">
-	<meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-  <title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta name="keywords" content="hexo, autumn">
+    <title>
+        弋泠
+    </title>
+    <!-- favicon -->
     
-      文章归档 | 弋泠
-    
-  </title>
-  <meta name="author" content="uhyintl">
-  <meta name="keywords" content>
-  <meta name="description" content="随笔博客">
-	<!-- favicon -->
-  <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/favicon.ico">
+     <link rel="stylesheet" href="/css/style.css">
 
-  <!-- css -->
-  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="/css/Annie.css">
-  
-  <!-- jquery -->
-	<script src="/js/jquery.min.js"></script>
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css">
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>
 
-  <!-- leancloud -->
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-<script src="/js/leancloud.js"></script>
+    <script>
+        infiniteScroll()
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
+                } else {
+                    mobileMainTitle.classList.add('invisibile')
+                }
+            })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
+        })
+    </script>
 </head>
-	<body>
-		<!-- Preloader -->
 
-	<div id="preloader">
-		<div class="pre-container">
-			
-				<div class="spinner">
-					<div class="double-bounce1"></div>
-					<div class="double-bounce2"></div>
-				</div>
-						
-		</div>
-	</div>
+<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+    <div class="container">
+        <header class="header">
+    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <h3 class="invisibile">
+            <a href="/" class="logo">
+                弋泠
+            </a>
+        </h3>
+        <button class="menu">menu</button>
+    </nav>
 
+    <button class="ipad-menu menu">menu</button>
 
-<!-- header -->
-<header class="fixbackground" data-img-mode="normal" data-normal-src="/img/1.jpg" data-random-max="110" data-random-src="https://sariay.github.io/Random-img/">
-	<div class="mask">
-		<!-- Logo and navigation -->
-		<div class="h-header">
-			<div id="logo">
-				<a href="/">
-						
-						<img src="/img/logo.png" alt="Logo">
-					
-				</a>
-			</div>
-			
-			<div id="navigation-show">
-				<ul>
-	
-		<li class="menu-home">
-			<a href="/" class="menu-item-home">主页</a>
-		</li>
-	
-		<li class="menu-archive">
-			<a href="/archives" class="menu-item-archive">归档</a>
-		</li>
-	
-		<li class="menu-categories">
-			<a href="/categories" class="menu-item-categories">分类</a>
-		</li>
-	
-		<li class="menu-tags">
-			<a href="/tags" class="menu-item-tags">标签</a>
-		</li>
-	
-		<li class="menu-about">
-			<a href="/about" class="menu-item-about">关于</a>
-		</li>
-	
-		<li class="menu-gallery">
-			<a href="/gallery" class="menu-item-gallery">相册</a>
-		</li>
-	
+    <h1 class="title" id="main-title">
+        <a href="/" class="logo">
+            弋泠
+        </a>
+    </h1>
+    <h2 class="desc">
+        随笔博客
+    </h2>
 
-	
-</ul>
-			</div>				
-		</div>
-
-		<!-- motto -->
-		<div class="h-body">	
-			
-				<p class="motto"></p>
-			
-		</div>
-		
-		<!-- others: such as time... -->			
-		<div class="h-footer">
-			<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i>
-			</a>
-
-			
-				<!-- 
-	This is only a demo, please go to "https://time.is" to set your city time! 
--->
-<style type="text/css">
-	.header-date {
-		font-size: 1.6rem;
-		color: #fff;
-		position: absolute;
-		bottom: 5px;
-		right: 1rem;
-		writing-mode: tb-rl;
-	}	
-	
-	.header-date a {
-		border-bottom: none;
-	}
-
-	@media only screen and (max-width: 768 ) {
-		.header-date {
-			font-size: 1rem;
-		}			
-	}
-</style>
-<div class="header-date">
-	<a href="https://time.is/Beijing" id="time_is_link" rel="nofollow" ></a>
-	<span id="Beijing_z43d"></span>
-</div>
-<script src="//widget.time.is/zh.js"></script>
-<script>
-	time_is_widget.init({
-		Beijing_z43d:{
-			template:"DATE", 
-			date_format:"year年 monthname dnum日"
-		}
-	});
-</script>
-			
-		</div>
-	</div>
-</header>
-
-<div id="navigation-hide">
-	<!-- Progress bar -->
-	<div id="progress-bar"></div>
-
-	<!-- Progress percent -->
-	<div id="progress-percentage"><h1>0.0%</h1></div>
-
-	<div class="toc-switch"><span class="switch-button">目录</span></div>
-
-	<!-- Page title -->
-	<p>
-		
-			文章归档
-		
-	</p>
-
-	<!-- Nav trigger for navigation-H-->
-	<a class="nav-trigger"><span></span></a>
-</div>
-
-<!-- Navigation in div(id="navigation-H") -->
-<nav class="nav-container" id="cd-nav">
-	<div class="nav-header">
-		<h3>Navigation</h3>
-		<a href="javascript:;" class="nav-close"></a>
-	</div>
-	<div class="nav-body">
-		<ul>
-	
-		<li class="menu-home">
-			<a href="/" class="menu-item-home">主页</a>
-		</li>
-	
-		<li class="menu-archive">
-			<a href="/archives" class="menu-item-archive">归档</a>
-		</li>
-	
-		<li class="menu-categories">
-			<a href="/categories" class="menu-item-categories">分类</a>
-		</li>
-	
-		<li class="menu-tags">
-			<a href="/tags" class="menu-item-tags">标签</a>
-		</li>
-	
-		<li class="menu-about">
-			<a href="/about" class="menu-item-about">关于</a>
-		</li>
-	
-		<li class="menu-gallery">
-			<a href="/gallery" class="menu-item-gallery">相册</a>
-		</li>
-	
-
-	
-</ul>
-	</div>
-	<div class="nav-footer">
-		<ul>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-github"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-weibo"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-pinterest"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-instagram"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-twitter"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<i class="fa fa-rss"></i>
-			</a>
-		</li>
-			
-</ul>
-
-	</div>
-</nav>
-			
-		<!--main-->
-		<main>
-			<!--
-	时间：2018-11-08
-	描述：The archive module refers to 'https://1984n.win/archives-post/' & 'http://1900.live/one-theme/', include js、css. Relevant rights reserved by them! 
--->
-<div class="layout-archive">
-    <div class="i-container">
-        <i class="fa fa-book">
-			<!--
-	Post number counter for archive.ejs.  
--->
-
-	
-	总计 4 篇 文章
-	
-
-		</i>
-    </div>
-
-    <!-- Archive by year, display in page( archive ) -->
-    <div id="layout-archive-year" style="display: 
-                 	
-            block">        
-        
-        
+    <div class="links">
         <ul>
             
-                <li>
-                    <a href="/2019/10/01/那些超赞的网站分享-持续更新/">
-            			<em year="2019">
-                            10-01
-                        </em>
-        			    <span itemprop="name">
-                            那些超赞的网站分享-持续更新
-                        </span>
-        			    
-                			<a href="/tags/souce/" class="tag">
-                				souce
-                			</a>
-                        
-                    </a>
-                </li>
+            <li>
+                <a href="https://github.com/uhyintl">
+                    Github
+                </a>
+            </li>
             
-                <li>
-                    <a href="/2019/10/01/最新IntelliJ系列产品激活码/">
-            			<em year="2019">
-                            10-01
-                        </em>
-        			    <span itemprop="name">
-                            最新IntelliJ系列产品激活码
-                        </span>
-        			    
-                			<a href="/tags/java/" class="tag">
-                				java
-                			</a>
-                        
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="/2019/10/01/HTML下雪特效/">
-            			<em year="2019">
-                            10-01
-                        </em>
-        			    <span itemprop="name">
-                            HTML下雪特效
-                        </span>
-        			    
-                			<a href="/tags/JavaScript/" class="tag">
-                				JavaScript
-                			</a>
-                        
-                			<a href="/tags/HTML/" class="tag">
-                				HTML
-                			</a>
-                        
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="/2019/10/01/hello-world/">
-            			<em year="2019">
-                            10-01
-                        </em>
-        			    <span itemprop="name">
-                            Hello World
-                        </span>
-        			    
-                    </a>
-                </li>
+            <li>
+                <a href="https://www.linkedin.com/yminek">
+                    LinkedIn
+                </a>
+            </li>
             
         </ul>
     </div>
-
-     <!-- Archive by month, called by page( categories, tags... ) -->
-    <div id="layout-archive-month" style="display: 
-         
-            none"> 
-        
-
-        
-        
+</header>
+        <main class="main">
             
-
-            
-                
-                <h3 class="archive-year">
-                    <!-- <a href="/archives/2019/10"> -->
-                    <a>
-                        2019 - 10
-                    </a>
-                </h3>
-            
-
-            <ul>
-                <li>
-                    <a href="/2019/10/01/那些超赞的网站分享-持续更新/">
-                        <em>
-                            10-01
-                        </em>
-                        <span itemprop="name">
-                            那些超赞的网站分享-持续更新
-                        </span>
-                        
-                            <a href="/tags/souce/" class="tag">
-                                souce
-                            </a>
-                               
-                    </a>
-                </li>
-            </ul>
-        
-            
-
-            
-
-            <ul>
-                <li>
-                    <a href="/2019/10/01/最新IntelliJ系列产品激活码/">
-                        <em>
-                            10-01
-                        </em>
-                        <span itemprop="name">
-                            最新IntelliJ系列产品激活码
-                        </span>
-                        
-                            <a href="/tags/java/" class="tag">
-                                java
-                            </a>
-                               
-                    </a>
-                </li>
-            </ul>
-        
-            
-
-            
-
-            <ul>
-                <li>
-                    <a href="/2019/10/01/HTML下雪特效/">
-                        <em>
-                            10-01
-                        </em>
-                        <span itemprop="name">
-                            HTML下雪特效
-                        </span>
-                        
-                            <a href="/tags/JavaScript/" class="tag">
-                                JavaScript
-                            </a>
-                        
-                            <a href="/tags/HTML/" class="tag">
-                                HTML
-                            </a>
-                               
-                    </a>
-                </li>
-            </ul>
-        
-            
-
-            
-
-            <ul>
-                <li>
-                    <a href="/2019/10/01/hello-world/">
-                        <em>
-                            10-01
-                        </em>
-                        <span itemprop="name">
-                            Hello World
-                        </span>
-                               
-                    </a>
-                </li>
-            </ul>
-        
-    </div>
-
+<section class="posts">
     
-</div>
-		</main>
+        <article class="post">
+            
+                    <h1 class="post-title">
+                        <a href="/2019/10/01/那些超赞的网站分享-持续更新/">
+                            那些超赞的网站分享-持续更新
+                        </a>
+                    </h1>
 
-		<!--footer-->
-		<footer>
-	<div class="social">
-		<ul>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-github"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-weibo"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-pinterest"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-instagram"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-twitter"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<i class="fa fa-rss"></i>
-			</a>
-		</li>
-			
-</ul>
+                    <ul class="post-date">
+                        <li>
+                            2019年10月1日
+                        </li>
+                        <li>
+                            uhyintl
+                        </li>
+                    </ul>
+                    
+                        <div class="post-cover">
+                            <img src="https://i.loli.net/2017/08/15/59926e94e27df.jpg">
+                        </div>
+                    
+                    <div class="post-content ">
+                        
+                            <a href="/2019/10/01/那些超赞的网站分享-持续更新/" class="more-link">Continue reading</a>
+                    </div>
+        </article>
+        
+        <article class="post">
+            
+                <h4 class="post-cat">
+                    <a href="/categories/souce/">
+                        souce
+                    </a>
+                </h4>
+                
+                    <h1 class="post-title">
+                        <a href="/2019/10/01/最新IntelliJ系列产品激活码/">
+                            最新IntelliJ系列产品激活码
+                        </a>
+                    </h1>
 
-	</div>
-		
-	<div class="copyright">
-		<p>
-			 
-				&copy;2017 - 2019, content by uhyintl. All Rights Reserved.
-			
-			
-			
+                    <ul class="post-date">
+                        <li>
+                            2019年10月1日
+                        </li>
+                        <li>
+                            uhyintl
+                        </li>
+                    </ul>
+                    
+                        <div class="post-cover">
+                            <img src="https://gss2.bdstatic.com/9fo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=9b65765fab44ad342ebf8081e8996bc9/4afbfbedab64034f72b616b4a5c379310a551d0c.jpg">
+                        </div>
+                    
+                    <div class="post-content ">
+                        
+                            <a href="/2019/10/01/最新IntelliJ系列产品激活码/" class="more-link">Continue reading</a>
+                    </div>
+        </article>
+        
+        <article class="post">
+            
+                <h4 class="post-cat">
+                    <a href="/categories/web/">
+                        web
+                    </a>
+                </h4>
+                
+                    <h1 class="post-title">
+                        <a href="/2019/10/01/HTML下雪特效/">
+                            HTML下雪特效
+                        </a>
+                    </h1>
 
-	<!-- busuanzi -->
-	<!-- busuanzi -->
+                    <ul class="post-date">
+                        <li>
+                            2019年10月1日
+                        </li>
+                        <li>
+                            uhyintl
+                        </li>
+                    </ul>
+                    
+                        <div class="post-cover">
+                            <img src="https://cdn.wc1234.cn/wp-file/2018/12/c4f083a1451ba858638f44be02ed0f91.gif">
+                        </div>
+                    
+                    <div class="post-content ">
+                        
+                            <a href="/2019/10/01/HTML下雪特效/" class="more-link">Continue reading</a>
+                    </div>
+        </article>
+        
+        <article class="post">
+            
+                    <h1 class="post-title">
+                        <a href="/2019/10/01/hello-world/">
+                            Hello World
+                        </a>
+                    </h1>
 
-		
-	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-	
+                    <ul class="post-date">
+                        <li>
+                            2019年10月1日
+                        </li>
+                        <li>
+                            uhyintl
+                        </li>
+                    </ul>
+                    
+                    <div class="post-content ">
+                        
+                            <a href="/2019/10/01/hello-world/" class="more-link">Continue reading</a>
+                    </div>
+        </article>
+        
+</section>
 
-		<span id="busuanzi_container_site_pv">
-	    	本站总访问量<span id="busuanzi_value_site_pv"></span>次
-		</span>
+        </main>
+        <aside class="aside">
+            <div class="close"></div>
+            <section class="aside-section">
+                
+    <h1>Categories</h1>
 
-		<span id="busuanzi_container_site_uv">
-	  		本站访客数<span id="busuanzi_value_site_uv"></span>人次
-		</span>
-		
-	
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/souce/">souce</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a></li></ul>
 
+            </section>
+            <section class="aside-section">
+                
+    <h1>Archives</h1>
 
-
-
-		</p>
-		<p>
-			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
-			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
-			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
-		</p>
-	</div>		
-</footer>
-		
-	<!-- set '1' to show motto in all pages! -->
-
-	<script src="/plugin/motto/motto.js"></script>
-	
-	<script type="text/javascript">
-		$(".motto").html( getMingYanContent() );
-	</script>	
-
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a></li></ul>
 
 
+            </section>
+            <section class="aside-section tag">
+                
+    <h1>Tags</h1>
 
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/souce/">souce</a></li></ul>
 
-<!-- love effect -->
+            </section>
+        </aside>
+    </div>
+</body>
 
-	<script src="/plugin/love/love.js"></script>
-
-
-<!-- back to top -->
-
-	
-	<div id="totop">
-  		<a href="javascript:;"  name="TOTOP" class="fa fa-arrow-up" ></a>
-	</div>
-
-
-
-
-<!-- site analysis -->
-
-
-	<!-- site-analysis -->
-	
-	
-	
-	
-	
- 
-
-<script src="/plugin/vibrant/vibrant.js"></script>
-<script src="/plugin/chinese/chinese.js"></script>
-<script src="/plugin/imgLazyLoader/yall.min.js"></script>
-<script src="/plugin/imgResize/jquery.resizeimagetoparent.min.js"></script>
-<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
-<script src="/js/resizediv.js"></script>
-<script src="/js/main.js"></script>
-	</body>	
 </html>
